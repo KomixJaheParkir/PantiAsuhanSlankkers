@@ -118,4 +118,7 @@ public class Penyumbang {
             Koneksi.executeQuery(SQL);
         }
     }
+    public void delete(){
+        
+    }
 }
