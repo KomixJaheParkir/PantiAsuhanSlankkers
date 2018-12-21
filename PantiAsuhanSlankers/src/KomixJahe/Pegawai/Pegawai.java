@@ -181,4 +181,8 @@ public class Pegawai {
         String SQL = "DELETE FROM pegawai WHERE idpegawai = '" + this.idpegawai + "'";
         Koneksi.executeQuery(SQL);
     }
+     @Override
+    public String toString(){
+        return nama;
+    }
 }
