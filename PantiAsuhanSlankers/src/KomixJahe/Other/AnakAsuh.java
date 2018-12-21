@@ -199,6 +199,59 @@ public class AnakAsuh {
             Koneksi.executeQuery(SQL);
         }
     }
+      public ArrayList<AnakAsuh> search(String keyword)
+    {
+        ArrayList<AnakAsuh> ListAnakAsuh = new ArrayList();
+        
+        ResultSet rs = Koneksi.selectQuery("SELECT "
+                                        + "     a.idanak AS idanak, "
+                                        + "     a.nama AS nama, "
+                                        + "     a.alamat AS alamat, "
+                                        + "     a.tanggalmasuk , "
+                                        + "     a.tanggalkeluar , "
+                                        + "     p.idpegawai AS idpegawai, "
+                                        + "     p.nama AS nama, "
+                                        + "     p.JenisKelamin AS JenisKelamin, "
+                                        + "     p.statuskepegawaian AS statuskepegawaian, "
+                                        + "     p.statusperkawinan AS statusperkawinan, "
+                                        + "     p.alamat AS alamat, "
+                                        + "     p.telepon AS telepon, "
+                                        + "     p.jabatan AS jabatan "
+                                        + "     FROM anakasuh a "
+                                        + "     LEFT JOIN pegawai p ON a.idpegawai = p.idpegawai "
+                                        + "     WHERE a.nama LIKE '%" + keyword + "%' "
+                                        + "         OR a.alamat LIKE '%" + keyword + "%' "
+                                        + "         OR a.tanggalmasuk LIKE '%" + keyword + "%' "
+                                        + "         OR a.tanggalkeluar LIKE '%" + keyword + "%' ");
+        
+        try
+        {
+            while(rs.next())
+            {
+                AnakAsuh anakasuh = new AnakAsuh();
+                anakasuh.setIdanak(rs.getInt("idanak"));
+                anakasuh.getPegawai().setIdpegawai(rs.getInt("idpegawai"));
+                anakasuh.getPegawai().setNama(rs.getString("nama"));
+                anakasuh.getPegawai().setJeniskelamin(rs.getString("JenisKelamin"));
+                anakasuh.getPegawai().setStatuskepegawaian(rs.getString("statuskepegawaian"));
+                anakasuh.getPegawai().setStatusperkawinan(rs.getString("statusperkawinan"));
+                anakasuh.getPegawai().setAlamat(rs.getString("alamat"));
+                anakasuh.getPegawai().setTelepon(rs.getString("telepon"));
+                anakasuh.getPegawai().setJabatan(rs.getString("jabatan"));
+                anakasuh.setNamaanak(rs.getString("nama"));
+                anakasuh.setAlamat(rs.getString("alamat"));
+                anakasuh.setTglmasuk(rs.getString("tanggalmasuk"));
+                anakasuh.setTglkeluar(rs.getString("tanggalkeluar"));
+                
+                ListAnakAsuh.add(anakasuh);
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return ListAnakAsuh;
+    }
         public void delete(){
         String SQL = "DELETE FROM anakasuh WHERE idanak = '" + this.idanak + "'";
         Koneksi.executeQuery(SQL);
