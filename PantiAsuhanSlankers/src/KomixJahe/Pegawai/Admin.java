@@ -22,5 +22,14 @@ public class Admin {
         this.nama = nama;
         this.jadwal = jadwal;
     }
+
+    public int getIdAdmin() {
+        return idAdmin;
+    }
+
+    public void setIdAdmin(int idAdmin) {
+        this.idAdmin = idAdmin;
+    }
+    
     
 }
