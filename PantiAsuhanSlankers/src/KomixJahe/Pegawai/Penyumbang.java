@@ -16,6 +16,16 @@ public class Penyumbang {
     private String tanggalsumbangan;
     private String jumlahsumbangan;
 
+    public Penyumbang() {
+    }
+
+    public Penyumbang(String nama, String tanggalsumbangan, String jumlahsumbangan) {
+        this.nama = nama;
+        this.tanggalsumbangan = tanggalsumbangan;
+        this.jumlahsumbangan = jumlahsumbangan;
+    }
+
+    
     public int getIdpenyumbang() {
         return idpenyumbang;
     }
