@@ -150,6 +150,41 @@ public class Pegawai {
         }
         return ListPetugas;
     }
+    public ArrayList<Pegawai> search(String keyword){
+        ArrayList<Pegawai> ListPetugas = new ArrayList();
+        Pegawai pg;
+        String sql = "SELECT * FROM pegawai WHERE "
+                    + "     nama LIKE '%" + keyword + "%' OR"
+                    + "     JenisKelamin LIKE '%" + keyword + "%' OR"
+                    + "     statuskepegawaian LIKE '%" + keyword + "%' OR"
+                    + "     statusperkawinan LIKE '%" + keyword + "%' OR"
+                    + "     alamat LIKE '%" + keyword + "%' OR"
+                    + "     telepon LIKE '%" + keyword + "%' OR"
+                    + "     jabatan LIKE '%" + keyword + "%' ";
+        ResultSet rs = Koneksi.selectQuery(sql);
+        
+        try
+        {
+            while(rs.next())
+            {
+                pg = new Pegawai();
+                pg.setIdpegawai(rs.getInt("idpegawai"));
+                pg.setNama(rs.getString("nama"));
+                pg.setJeniskelamin(rs.getString("JenisKelamin"));
+                pg.setStatuskepegawaian(rs.getString("statuskepegawaian"));
+                pg.setStatusperkawinan(rs.getString("statusperkawinan"));
+                pg.setAlamat(rs.getString("alamat"));
+                pg.setTelepon(rs.getString("telepon"));
+                pg.setJabatan(rs.getString("jabatan"));                
+                ListPetugas.add(pg);
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return ListPetugas;
+    }
     public void save(){
         if(getById(idpegawai).getIdpegawai() == 0)
         {
