@@ -82,7 +82,23 @@ public class Penyumbang {
     }
     public ArrayList<Penyumbang> getAll(){
         ArrayList<Penyumbang> ListPenyumbang = new ArrayList();
-        
-        ResultSet rs = koneksi.selectQuery("SELECT * FROM penyumbang");
+        ResultSet rs = Koneksi.selectQuery("SELECT * FROM penyumbang");
+        try
+        {
+            while(rs.next())
+            {
+                Penyumbang pen = new Penyumbang();
+                pen.setIdpenyumbang(rs.getInt("idpenyumbang"));
+                pen.setNama(rs.getString("nama"));
+                pen.setTanggalsumbangan(rs.getString("tanggalsumbangan"));
+                pen.setJumlahsumbangan(rs.getString("jumlahsumbangan"));
+                
+                ListPenyumbang.add(pen);
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        return ListPenyumbang;
     } 
 }
