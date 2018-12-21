@@ -102,6 +102,11 @@ public class Penyumbang {
         return ListPenyumbang;
     } 
     public void save(){
-       
+     String SQL = "INSERT INTO penyumbang (nama, tanggalsumbangan, jumlahsumbangan) VALUES(" 
+                        +"  '" + this.nama + "',"
+                        +"  '" + this.tanggalsumbangan + "',"
+                        +"  '" + this.jumlahsumbangan + "' " 
+                        +"  )";
+            this.idpenyumbang = Koneksi.insertQueryGetId(SQL);  
     }
 }
