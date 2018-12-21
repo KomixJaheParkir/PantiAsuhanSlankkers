@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package KomixJahe.Pegawai;
+import KomixJahe.Koneksi.Koneksi;
 import java.sql.*;
 /**
  *
@@ -45,6 +46,24 @@ public class Admin {
 
     public void setNama(String nama) {
         this.nama = nama;
+    }
+    
+    public Admin getByid(int id){
+        Admin ad = new Admin();
+        ResultSet rs= Koneksi.selectQuery("Select *from admin"
+                                                 +"where idadmin='"+id+"'");
+    
+        try {
+            while(rs.next()){
+                ad=new Admin();
+                ad.setIdAdmin(rs.getInt(idAdmin));
+                ad.setNama(rs.getString("nama"));
+                ad.setJadwal(rs.getString("jadwal"));
+            }
+        } catch (Exception e) {
+                e.printStackTrace();
+        }
+        return ad;
     }
     
     
