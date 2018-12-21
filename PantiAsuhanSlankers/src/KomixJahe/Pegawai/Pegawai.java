@@ -96,5 +96,7 @@ public class Pegawai {
     public void setJabatan(String jabatan) {
         this.jabatan = jabatan;
     }
-      
+    public Pegawai getById(int id){
+        
+    }
 }
