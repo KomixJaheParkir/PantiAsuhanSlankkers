@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 package KomixJahe.Pegawai;
-
+import KomixJahe.Koneksi.Koneksi;
+import java.sql.*;
 /**
  *
  * @author ASUS 10.1
@@ -97,6 +98,8 @@ public class Pegawai {
         this.jabatan = jabatan;
     }
     public Pegawai getById(int id){
-        
+        Pegawai pg = new Pegawai();
+        ResultSet rs = Koneksi.selectQuery("SELECT * FROM pegawai "
+                                            + " WHERE idpegawai = '" + id + "'");
     }
 }
