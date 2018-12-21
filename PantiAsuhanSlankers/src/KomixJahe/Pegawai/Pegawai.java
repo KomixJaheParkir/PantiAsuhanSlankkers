@@ -6,6 +6,7 @@
 package KomixJahe.Pegawai;
 import KomixJahe.Koneksi.Koneksi;
 import java.sql.*;
+import java.util.ArrayList;
 /**
  *
  * @author ASUS 10.1
@@ -122,6 +123,9 @@ public class Pegawai {
             e.printStackTrace();
         }
         return pg;
+    }
+    public ArrayList<Pegawai> getAll(){
+        
     }
     
 }
