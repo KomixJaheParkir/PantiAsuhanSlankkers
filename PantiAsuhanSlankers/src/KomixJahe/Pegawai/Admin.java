@@ -30,6 +30,15 @@ public class Admin {
     public void setIdAdmin(int idAdmin) {
         this.idAdmin = idAdmin;
     }
+
+    public String getJadwal() {
+        return jadwal;
+    }
+
+    public void setJadwal(String jadwal) {
+        this.jadwal = jadwal;
+    }
+    
     
     
 }
