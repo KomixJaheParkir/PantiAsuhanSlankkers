@@ -174,5 +174,30 @@ public class AnakAsuh {
         }
         return ListAnakAsuh;
     }
+    public void save()
+    {
+        if(getById(idanak).getIdanak() == 0)
+        {
+            String SQL = "INSERT INTO anakasuh (idpegawai, nama, alamat, tanggalmasuk, tanggalkeluar) VALUES("
+                        +"  '" + this.getPegawai().getIdpegawai() + "', "
+                        +"  '" + this.namaanak + "', "
+                        +"  '" + this.alamat + "', "
+                        +"  '" + this.tglmasuk + "', "
+                        +"  '" + this.tglkeluar + "' "
+                        +"  )";
+            this.idanak = Koneksi.insertQueryGetId(SQL);
+        }
+        else
+        {
+            String SQL = "UPDATE anakasuh SET " 
+                        +"  idpegawai = '" + this.getPegawai().getIdpegawai() + "', "
+                        +"  nama = '" + this.namaanak + "',"
+                        +"  alamat = '" + this.alamat + "',"
+                        +"  tanggalmasuk = '" + this.tglmasuk + "',"
+                        +"  tanggalkeluar = '" + this.tglkeluar + "' "
+                        +"  WHERE idanak = '" + this.idanak + "' ";
+            Koneksi.executeQuery(SQL);
+        }
+    }
     
 }
