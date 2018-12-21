@@ -87,7 +87,21 @@ public class Admin {
             return ListAdmin;
         }
        public void save(){
-           
+            if(getByid(idAdmin).getIdAdmin() == 0)
+        {
+            String SQL = "INSERT INTO admin (nama, jadwal) VALUES("
+                    + "      '" + this.nama + "', "
+                    + "      '" + this.jadwal + "' "
+                    + "      )";
+            this.idAdmin = Koneksi.insertQueryGetId(SQL);
+        }
+        else{
+            String SQL = "UPDATE admin SET "
+                    + "     nama = '" + this.nama + "', "
+                    + "     jadwal = '" + this.jadwal + "' "
+                    + "     WHERE idadmin = '" + this.idAdmin + "'";
+            Koneksi.executeQuery(SQL);
+        }
        }
     }
     
