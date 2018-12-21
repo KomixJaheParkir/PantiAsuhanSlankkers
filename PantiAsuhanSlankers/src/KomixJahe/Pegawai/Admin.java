@@ -103,7 +103,11 @@ public class Admin {
             Koneksi.executeQuery(SQL);
         }
        }
-    }
+       public void delete(){
+           String SQL= "Delete From admin where idadmin='"+this.idAdmin+"'";
+           Koneksi.executeQuery(SQL);
+       }
+ }
     
 
 
