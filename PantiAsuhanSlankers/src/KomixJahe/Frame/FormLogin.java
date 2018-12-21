@@ -48,7 +48,7 @@ public class FormLogin extends javax.swing.JFrame {
         jLabel2.setText("PANTI ASUHAN");
 
         jLabel3.setFont(new java.awt.Font("Imprint MT Shadow", 1, 18)); // NOI18N
-        jLabel3.setText("MILA KASIH");
+        jLabel3.setText("SLANKERS");
 
         jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setText("USERNAME");

@@ -114,7 +114,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Imprint MT Shadow" size="18" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="MILA KASIH"/>
+        <Property name="text" type="java.lang.String" value="SLANKERS"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">

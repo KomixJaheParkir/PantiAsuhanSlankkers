@@ -146,10 +146,8 @@ public class AnakAsuh {
                                         + "     FROM anakasuh a "
                                         + "     RIGHT JOIN pegawai p ON a.idpegawai = p.idpegawai ");
         
-        try
-        {
-            while(rs.next())
-            {
+        try{
+            while(rs.next()) {
                 AnakAsuh anakasuh = new AnakAsuh();
                 anakasuh.setIdanak(rs.getInt("idanak"));
                 anakasuh.setNamaanak(rs.getString("nama"));
@@ -174,10 +172,8 @@ public class AnakAsuh {
         }
         return ListAnakAsuh;
     }
-    public void save()
-    {
-        if(getById(idanak).getIdanak() == 0)
-        {
+    public void save(){
+        if(getById(idanak).getIdanak() == 0){
             String SQL = "INSERT INTO anakasuh (idpegawai, nama, alamat, tanggalmasuk, tanggalkeluar) VALUES("
                         +"  '" + this.getPegawai().getIdpegawai() + "', "
                         +"  '" + this.namaanak + "', "
@@ -187,8 +183,7 @@ public class AnakAsuh {
                         +"  )";
             this.idanak = Koneksi.insertQueryGetId(SQL);
         }
-        else
-        {
+        else{
             String SQL = "UPDATE anakasuh SET " 
                         +"  idpegawai = '" + this.getPegawai().getIdpegawai() + "', "
                         +"  nama = '" + this.namaanak + "',"
@@ -199,8 +194,7 @@ public class AnakAsuh {
             Koneksi.executeQuery(SQL);
         }
     }
-      public ArrayList<AnakAsuh> search(String keyword)
-    {
+    public ArrayList<AnakAsuh> search(String keyword){
         ArrayList<AnakAsuh> ListAnakAsuh = new ArrayList();
         
         ResultSet rs = Koneksi.selectQuery("SELECT "
@@ -224,10 +218,8 @@ public class AnakAsuh {
                                         + "         OR a.tanggalmasuk LIKE '%" + keyword + "%' "
                                         + "         OR a.tanggalkeluar LIKE '%" + keyword + "%' ");
         
-        try
-        {
-            while(rs.next())
-            {
+        try{
+            while(rs.next()){
                 AnakAsuh anakasuh = new AnakAsuh();
                 anakasuh.setIdanak(rs.getInt("idanak"));
                 anakasuh.getPegawai().setIdpegawai(rs.getInt("idpegawai"));
@@ -246,8 +238,7 @@ public class AnakAsuh {
                 ListAnakAsuh.add(anakasuh);
             }
         }
-        catch (Exception e)
-        {
+        catch (Exception e){
             e.printStackTrace();
         }
         return ListAnakAsuh;

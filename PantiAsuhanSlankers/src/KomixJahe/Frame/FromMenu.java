@@ -49,7 +49,7 @@ public class FromMenu extends javax.swing.JFrame {
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 50, -1, -1));
 
         jLabel3.setFont(new java.awt.Font("Imprint MT Shadow", 1, 18)); // NOI18N
-        jLabel3.setText("MILA KASIH");
+        jLabel3.setText("SLANKERS");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 50, -1, -1));
 
         jButton1.setText("ADMIN");

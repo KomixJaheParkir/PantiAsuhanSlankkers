@@ -153,8 +153,8 @@ public class FrmPegawai extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(255, 0, 102));
         jLabel8.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
-        jLabel8.setText("       PANTI ASUHAN MILA KASIH");
-        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 0, 445, 65));
+        jLabel8.setText("       PANTI ASUHAN sLANKERS");
+        getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 0, 445, 65));
 
         btnSimpan.setText("Simpan");
         btnSimpan.addActionListener(new java.awt.event.ActionListener() {

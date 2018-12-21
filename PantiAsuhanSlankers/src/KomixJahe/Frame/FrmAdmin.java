@@ -155,7 +155,7 @@ public class FrmAdmin extends javax.swing.JFrame {
 
         jLabel4.setBackground(new java.awt.Color(255, 0, 102));
         jLabel4.setFont(new java.awt.Font("Stencil", 1, 24)); // NOI18N
-        jLabel4.setText("       PANTI ASUHAN MILA KASIH");
+        jLabel4.setText("       PANTI ASUHAN slankers");
 
         btnKembali.setText("Kembali");
         btnKembali.addActionListener(new java.awt.event.ActionListener() {
