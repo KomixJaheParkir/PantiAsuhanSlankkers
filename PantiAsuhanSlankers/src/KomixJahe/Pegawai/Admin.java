@@ -6,6 +6,7 @@
 package KomixJahe.Pegawai;
 import KomixJahe.Koneksi.Koneksi;
 import java.sql.*;
+import java.util.ArrayList;
 /**
  *
  * @author ASUS 10.1
@@ -65,7 +66,27 @@ public class Admin {
         }
         return ad;
     }
+    public ArrayList<Admin>getAll(){
+       ArrayList<Admin>ListAdmin= new ArrayList();
+       ResultSet rs=Koneksi.selectQuery("Select *from admin");
+        try
+        {
+          while(rs.next())
+          {
+              Admin ad = new Admin();
+              ad.setIdAdmin(rs.getInt("idadmin"));
+              ad.setNama(rs.getString("nama"));
+              ad.setJadwal(rs.getString("jadwal"));
+              
+              ListAdmin.add(ad);
+          }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+            return ListAdmin;
+        }
+    }
     
-    
-    
-}
+
+
