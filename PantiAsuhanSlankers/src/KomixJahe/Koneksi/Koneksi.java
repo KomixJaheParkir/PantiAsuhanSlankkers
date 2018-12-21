@@ -11,4 +11,22 @@ import java.sql.*;
  */
 public class Koneksi {
     private static Connection koneksi;
+    public static void bukaKoneksi() {
+        if(koneksi == null)
+        {
+            try
+            {
+                String url = "jdbc:mysql://localhost:3306/db_panti";
+                String user = "root";
+                String password = "";
+                DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+                koneksi = DriverManager.getConnection(url, user, password);
+            }
+            catch (SQLException t)
+            {
+                System.out.println("Error koneksi!");
+            }
+        }
+    }
+    
 }
