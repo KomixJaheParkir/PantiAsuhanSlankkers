@@ -28,5 +28,23 @@ public class Koneksi {
             }
         }
     }
-    
+    public static int insertQueryGetId(String query){
+        bukaKoneksi();
+        int num=0;
+        int result=-1;
+        try {
+            Statement stmt = koneksi.createStatement();
+            num=stmt.executeUpdate(query,Statement.RETURN_GENERATED_KEYS);
+            ResultSet rs= stmt.getGeneratedKeys();
+            if(rs.next()){
+                result= rs.getInt(1);
+            }
+            rs.close();
+            stmt.close();
+        } catch (Exception e) {
+           e.printStackTrace();
+           result=-1;
+        }
+        return result;
+    }
 }
