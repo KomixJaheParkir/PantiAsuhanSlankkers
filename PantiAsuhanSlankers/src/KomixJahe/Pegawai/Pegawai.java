@@ -101,5 +101,27 @@ public class Pegawai {
         Pegawai pg = new Pegawai();
         ResultSet rs = Koneksi.selectQuery("SELECT * FROM pegawai "
                                             + " WHERE idpegawai = '" + id + "'");
+    try
+        {
+            while(rs.next())
+            {
+                pg = new Pegawai();
+                pg.setIdpegawai(rs.getInt("idpegawai"));
+                pg.setNama(rs.getString("nama"));
+                pg.setJeniskelamin(rs.getString("JenisKelamin"));
+                pg.setStatuskepegawaian(rs.getString("statuskepegawaian"));
+                pg.setStatusperkawinan(rs.getString("statusperkawinan"));
+                pg.setAlamat(rs.getString("alamat"));
+                pg.setTelepon(rs.getString("telepon"));
+                pg.setJabatan(rs.getString("jabatan"));
+                
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return pg;
     }
+    
 }
