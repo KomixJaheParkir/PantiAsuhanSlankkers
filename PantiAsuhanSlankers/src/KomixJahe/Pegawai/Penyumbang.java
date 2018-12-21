@@ -119,6 +119,7 @@ public class Penyumbang {
         }
     }
     public void delete(){
-        
+        String SQL = "DELETE FROM penyumbang WHERE idpenyumbang = '" + this.idpenyumbang + "'";
+        Koneksi.executeQuery(SQL);
     }
 }
