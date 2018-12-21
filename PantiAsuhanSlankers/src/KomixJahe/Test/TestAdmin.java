@@ -12,8 +12,9 @@ import KomixJahe.Pegawai.Admin;
  * @author ASUS 10.1
  */
 public class TestAdmin {
-    public static void main (String args[]){
-     Admin ad1 = new Admin("KB", "Senin-Rabu");
+
+    public static void main(String[] args) {
+        Admin ad1 = new Admin("KB", "Senin-Rabu");
           Admin ad2 = new Admin("MV", "Kamis-Minggu");
           
           //test insert
@@ -39,4 +40,5 @@ public class TestAdmin {
               System.out.println("Nama : " + a.getNama() + "Jadwal : " + a.getJadwal());
           }
     }      
-}
+ }
+
