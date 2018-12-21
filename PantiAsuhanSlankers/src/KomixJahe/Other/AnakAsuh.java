@@ -30,5 +30,52 @@ public class AnakAsuh {
         this.tglmasuk = tglmasuk;
         this.tglkeluar = tglkeluar;
     }
+      public int getIdanak() {
+        return idanak;
+    }
+
+    public void setIdanak(int idanak) {
+        this.idanak = idanak;
+    }
+
+    public Pegawai getPegawai() {
+        return pegawai;
+    }
+
+    public void setPegawai(Pegawai pegawai) {
+        this.pegawai = pegawai;
+    }
+
+    public String getNamaanak() {
+        return namaanak;
+    }
+
+    public void setNamaanak(String namaanak) {
+        this.namaanak = namaanak;
+    }
+
+    public String getAlamat() {
+        return alamat;
+    }
+
+    public void setAlamat(String alamat) {
+        this.alamat = alamat;
+    }
+
+    public String getTglmasuk() {
+        return tglmasuk;
+    }
+
+    public void setTglmasuk(String tglmasuk) {
+        this.tglmasuk = tglmasuk;
+    }
+
+    public String getTglkeluar() {
+        return tglkeluar;
+    }
+
+    public void setTglkeluar(String tglkeluar) {
+        this.tglkeluar = tglkeluar;
+    }
 
 }
