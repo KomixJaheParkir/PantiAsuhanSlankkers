@@ -199,5 +199,9 @@ public class AnakAsuh {
             Koneksi.executeQuery(SQL);
         }
     }
-    
+        public void delete(){
+        String SQL = "DELETE FROM anakasuh WHERE idanak = '" + this.idanak + "'";
+        Koneksi.executeQuery(SQL);
+    }
+
 }
