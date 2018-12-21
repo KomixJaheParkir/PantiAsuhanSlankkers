@@ -4,11 +4,11 @@
  * and open the template in the editor.
  */
 package KomixJahe.Koneksi;
-
+import java.sql.*;
 /**
  *
  * @author ASUS 10.1
  */
 public class Koneksi {
-    
+    private static Connection koneksi;
 }
