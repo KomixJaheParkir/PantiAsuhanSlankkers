@@ -66,6 +66,32 @@ public class Admin {
         }
         return ad;
     }
+    public ArrayList<Admin> search(String keyword){
+        ArrayList<Admin> ListAdmin = new ArrayList();
+        
+        String sql = "SELECT * FROM admin WHERE "
+                    + "     nama LIKE '%" + keyword + "%' "
+                    + "     OR jadwal LIKE '%" + keyword + "%' ";
+        ResultSet rs = Koneksi.selectQuery(sql);
+        
+        try
+        {
+            while(rs.next())
+            {
+                Admin ad = new Admin();
+                ad.setIdAdmin(rs.getInt("idadmin"));
+                ad.setNama(rs.getString("nama"));
+                ad.setJadwal(rs.getString("jadwal"));
+                
+                ListAdmin.add(ad);
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return ListAdmin;
+    }
     public ArrayList<Admin>getAll(){
        ArrayList<Admin>ListAdmin= new ArrayList();
        ResultSet rs=Koneksi.selectQuery("Select *from admin");
