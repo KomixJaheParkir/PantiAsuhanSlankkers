@@ -38,6 +38,14 @@ public class Admin {
     public void setJadwal(String jadwal) {
         this.jadwal = jadwal;
     }
+
+    public String getNama() {
+        return nama;
+    }
+
+    public void setNama(String nama) {
+        this.nama = nama;
+    }
     
     
     
