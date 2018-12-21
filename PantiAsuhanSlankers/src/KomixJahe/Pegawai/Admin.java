@@ -86,6 +86,9 @@ public class Admin {
         }
             return ListAdmin;
         }
+       public void save(){
+           
+       }
     }
     
 
