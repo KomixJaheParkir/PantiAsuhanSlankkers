@@ -47,4 +47,36 @@ public class Koneksi {
         }
         return result;
     }
+    public static boolean executeQuery(String query) 
+               {         
+                   bukaKoneksi();         
+                   boolean result = false;                  
+                   try         
+                   {             
+                       Statement stmt = koneksi.createStatement();            
+                       stmt.executeUpdate(query);                          
+                       result = true;                          
+                       stmt.close();         
+                   }        
+                   catch (Exception e)         
+                   {             
+                       e.printStackTrace();         
+                   }                  
+                   return result;     
+               } 
+      public static ResultSet selectQuery(String query)   
+      {         
+          bukaKoneksi();        
+          ResultSet rs = null;                 
+          try         
+          {            
+              Statement stmt = koneksi.createStatement();     
+              rs = stmt.executeQuery(query);        
+          }         
+          catch (Exception e)      
+          {             
+              e.printStackTrace();         
+          }                  
+          return rs;     
+      } 
 }
