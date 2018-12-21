@@ -80,5 +80,9 @@ public class Penyumbang {
         }
         return pen;
     }
-    
+    public ArrayList<Penyumbang> getAll(){
+        ArrayList<Penyumbang> ListPenyumbang = new ArrayList();
+        
+        ResultSet rs = koneksi.selectQuery("SELECT * FROM penyumbang");
+    } 
 }
