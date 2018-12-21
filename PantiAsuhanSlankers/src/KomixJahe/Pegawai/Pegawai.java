@@ -125,7 +125,56 @@ public class Pegawai {
         return pg;
     }
     public ArrayList<Pegawai> getAll(){
-        
+        ArrayList<Pegawai> ListPetugas = new ArrayList();
+        ResultSet rs = Koneksi.selectQuery("SELECT * FROM pegawai");
+          try
+        {
+          while(rs.next())
+          {
+                Pegawai pg = new Pegawai();
+                pg.setIdpegawai(rs.getInt("idpegawai"));
+                pg.setNama(rs.getString("nama"));
+                pg.setJeniskelamin(rs.getString("JenisKelamin"));
+                pg.setStatuskepegawaian(rs.getString("statuskepegawaian"));
+                pg.setStatusperkawinan(rs.getString("statusperkawinan"));
+                pg.setAlamat(rs.getString("alamat"));
+                pg.setTelepon(rs.getString("telepon"));
+                pg.setJabatan(rs.getString("jabatan"));
+              
+              ListPetugas.add(pg);
+          }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return ListPetugas;
     }
-    
+    public void save(){
+        if(getById(idpegawai).getIdpegawai() == 0)
+        {
+            String SQL = "INSERT INTO pegawai (nama, JenisKelamin, statuskepegawaian, statusperkawinan, alamat, telepon, jabatan) VALUES("
+                    + "      '" + this.nama + "', "
+                    + "      '" + this.jeniskelamin + "', "
+                    + "      '" + this.statuskepegawaian + "', "
+                    + "      '" + this.statusperkawinan + "', "
+                    + "      '" + this.alamat + "', "
+                    + "      '" + this.telepon + "', "
+                    + "      '" + this.jabatan + "' "
+                    + "      )";
+            this.idpegawai = Koneksi.insertQueryGetId(SQL);
+        }
+        else{
+            String SQL = "UPDATE pegawai SET "
+                    + "     nama = '" + this.nama + "', "
+                    + "     JenisKelamin = '" + this.jeniskelamin + "', "
+                    + "     statuskepegawaian = '" + this.statuskepegawaian + "', "
+                    + "     statusperkawinan = '" + this.statusperkawinan + "', "
+                    + "     alamat = '" + this.alamat + "', "
+                    + "     telepon =  '" + this.telepon + "', "
+                    + "     jabatan = '" + this.jabatan + "' "
+                    + "     WHERE idpegawai = '" + this.idpegawai + "'";
+            Koneksi.executeQuery(SQL);
+        }
+    }
 }
