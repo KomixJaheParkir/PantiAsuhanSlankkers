@@ -8,6 +8,7 @@ package KomixJahe.Other;
 import KomixJahe.Koneksi.Koneksi;
 import KomixJahe.Pegawai.Pegawai;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  *
@@ -125,4 +126,53 @@ public class AnakAsuh {
         }
         return anakasuh;
     }
+    public ArrayList<AnakAsuh> getAll(){
+        ArrayList<AnakAsuh> ListAnakAsuh = new ArrayList();
+        
+        ResultSet rs = Koneksi.selectQuery("SELECT "
+                                        + "     a.idanak AS idanak, "
+                                        + "     a.nama AS nama, "
+                                        + "     a.alamat AS alamat, "
+                                        + "     a.tanggalmasuk , "
+                                        + "     a.tanggalkeluar , "
+                                        + "     p.idpegawai AS idpegawai, "
+                                        + "     p.nama AS nama, "
+                                        + "     p.JenisKelamin AS JenisKelamin, "
+                                        + "     p.statuskepegawaian AS statuskepegawaian, "
+                                        + "     p.statusperkawinan AS statusperkawinan, "
+                                        + "     p.alamat AS alamat, "
+                                        + "     p.telepon AS telepon, "
+                                        + "     p.jabatan AS jabatan "
+                                        + "     FROM anakasuh a "
+                                        + "     RIGHT JOIN pegawai p ON a.idpegawai = p.idpegawai ");
+        
+        try
+        {
+            while(rs.next())
+            {
+                AnakAsuh anakasuh = new AnakAsuh();
+                anakasuh.setIdanak(rs.getInt("idanak"));
+                anakasuh.setNamaanak(rs.getString("nama"));
+                anakasuh.getPegawai().setIdpegawai(rs.getInt("idpegawai"));
+                anakasuh.getPegawai().setNama(rs.getString("nama"));
+                anakasuh.getPegawai().setJeniskelamin(rs.getString("JenisKelamin"));
+                anakasuh.getPegawai().setStatuskepegawaian(rs.getString("statuskepegawaian"));
+                anakasuh.getPegawai().setStatusperkawinan(rs.getString("statusperkawinan"));
+                anakasuh.getPegawai().setAlamat(rs.getString("alamat"));
+                anakasuh.getPegawai().setTelepon(rs.getString("telepon"));
+                anakasuh.getPegawai().setJabatan(rs.getString("jabatan"));
+                anakasuh.setAlamat(rs.getString("alamat"));
+                anakasuh.setTglmasuk(rs.getString("tanggalmasuk"));
+                anakasuh.setTglkeluar(rs.getString("tanggalkeluar"));
+                
+                ListAnakAsuh.add(anakasuh);
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return ListAnakAsuh;
+    }
+    
 }
