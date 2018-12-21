@@ -101,4 +101,7 @@ public class Penyumbang {
         }
         return ListPenyumbang;
     } 
+    public void save(){
+       
+    }
 }
