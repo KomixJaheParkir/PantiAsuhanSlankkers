@@ -102,11 +102,20 @@ public class Penyumbang {
         return ListPenyumbang;
     } 
     public void save(){
+        if(getById(idpenyumbang).getIdpenyumbang()==0){
      String SQL = "INSERT INTO penyumbang (nama, tanggalsumbangan, jumlahsumbangan) VALUES(" 
                         +"  '" + this.nama + "',"
                         +"  '" + this.tanggalsumbangan + "',"
                         +"  '" + this.jumlahsumbangan + "' " 
                         +"  )";
             this.idpenyumbang = Koneksi.insertQueryGetId(SQL);  
+         }else{
+            String SQL = "UPDATE penyumbang SET " 
+                        +"  nama = '" + this.nama + "',"
+                        +"  tanggalsumbangan = '" + this.tanggalsumbangan + "',"
+                        +"  jumlahsumbangan = '" + this.jumlahsumbangan + "' " 
+                        +"  WHERE idpenyumbang = '" + this.idpenyumbang + "'";
+            Koneksi.executeQuery(SQL);
+        }
     }
 }
