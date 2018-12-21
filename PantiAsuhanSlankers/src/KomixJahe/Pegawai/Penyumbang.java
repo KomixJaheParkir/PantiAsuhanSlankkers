@@ -122,4 +122,8 @@ public class Penyumbang {
         String SQL = "DELETE FROM penyumbang WHERE idpenyumbang = '" + this.idpenyumbang + "'";
         Koneksi.executeQuery(SQL);
     }
+       @Override
+    public String toString() {
+        return nama;
+    }
 }
